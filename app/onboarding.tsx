@@ -1,14 +1,13 @@
+import { router } from "expo-router";
 import LottieView from "lottie-react-native";
 import React from "react";
 import { SafeAreaView, Text } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
-
 interface SlideItem {
   key: string;
   title: string;
   text: string;
   lottie: any;
-  backgroundColor: string;
 }
 
 interface OnboardingProps {
@@ -26,35 +25,29 @@ const slides: SlideItem[] = [
     key: "one",
     title: "Stay on Track",
     text: "Get reminders for your medications on time.",
-    lottie:  require("../assets/lottie/track.json"),
-    backgroundColor: "#6C63FF",
+    lottie: require("../assets/lottie/track.json"),
   },
   {
     key: "two",
     title: "Track Progress",
     text: "Mark doses as taken and track your history.",
-    lottie:  require("../assets/lottie/progress.json"),
-    backgroundColor: "#00C9A7",
+    lottie: require("../assets/lottie/progress.json"),
   },
   {
     key: "three",
     title: "Your Health, Secured",
     text: "Your data stays private and secure.",
     lottie: require("../assets/lottie/health.json"),
-    backgroundColor: "#FF6B6B",
   },
 ];
 
 export default function Onboarding({ navigation }: OnboardingProps) {
   const onDone = (): void => {
-    navigation.replace("login");
+    router.replace("/");
   };
 
   const renderItem = ({ item }: RenderItemProps) => (
-    <SafeAreaView
-      className="flex-1 items-center justify-center p-5"
-      style={{ backgroundColor: item.backgroundColor }}
-    >
+    <SafeAreaView className="flex-1 items-center justify-center p-5 bg-primary-light">
       <LottieView
         source={item.lottie}
         autoPlay={true}
