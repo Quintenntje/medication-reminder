@@ -1,15 +1,12 @@
 import { Link } from "expo-router";
-import { Text, View, useColorScheme } from "react-native";
+import { Text, useColorScheme } from "react-native";
+import PageLayout from "../../components/PageLayout";
 
 export default function Index() {
   const colorScheme = useColorScheme();
 
   return (
-    <View
-      className={`flex-1 items-center justify-center ${
-        colorScheme === "dark" ? "bg-gray-900" : "bg-white"
-      }`}
-    >
+    <PageLayout>
       <Text
         className={`font-bold text-5xl ${
           colorScheme === "dark" ? "text-white" : "text-gray-900"
@@ -25,6 +22,6 @@ export default function Index() {
       >
         Onboarding
       </Link>
-    </View>
+    </PageLayout>
   );
 }
