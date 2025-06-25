@@ -1,19 +1,13 @@
 import { router } from "expo-router";
 import LottieView from "lottie-react-native";
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, useColorScheme } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
 interface SlideItem {
   key: string;
   title: string;
   text: string;
   lottie: any;
-}
-
-interface OnboardingProps {
-  navigation: {
-    replace: (routeName: string) => void;
-  };
 }
 
 interface RenderItemProps {
@@ -41,23 +35,39 @@ const slides: SlideItem[] = [
   },
 ];
 
-export default function Onboarding({ navigation }: OnboardingProps) {
+export default function Onboarding() {
+  const colorScheme = useColorScheme();
+
   const onDone = (): void => {
     router.replace("/");
   };
 
   const renderItem = ({ item }: RenderItemProps) => (
-    <SafeAreaView className="flex-1 items-center justify-center p-5 bg-primary-light">
+    <SafeAreaView
+      className={`flex-1 items-center justify-center p-5 
+      bg-primary-light
+      `}
+    >
       <LottieView
         source={item.lottie}
         autoPlay={true}
         loop={true}
         style={{ width: 312, height: 312, marginBottom: 32 }}
       />
-      <Text className="text-4xl font-bold text-white text-center mb-3">
+      <Text
+        className={`text-4xl font-bold text-center mb-3 ${
+          colorScheme === "dark" ? "text-white" : "text-white"
+        }`}
+      >
         {item.title}
       </Text>
-      <Text className="text-lg text-white text-center">{item.text}</Text>
+      <Text
+        className={`text-lg text-center ${
+          colorScheme === "dark" ? "text-gray-300" : "text-white"
+        }`}
+      >
+        {item.text}
+      </Text>
     </SafeAreaView>
   );
 

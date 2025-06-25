@@ -1,13 +1,20 @@
 import { Tabs } from "expo-router";
 import React from "react";
+import { useColorScheme } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
-const _layout = () => {
+const TabsLayout = () => {
+  const colorScheme = useColorScheme();
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#007AFF",
-        tabBarInactiveTintColor: "#8E8E93",
+        tabBarActiveTintColor: colorScheme === "dark" ? "#60A5FA" : "#007AFF",
+        tabBarInactiveTintColor: colorScheme === "dark" ? "#9CA3AF" : "#8E8E93",
+        tabBarStyle: {
+          backgroundColor: colorScheme === "dark" ? "#1F2937" : "#FFFFFF",
+          borderTopColor: colorScheme === "dark" ? "#374151" : "#E5E7EB",
+        },
       }}
     >
       <Tabs.Screen
@@ -44,4 +51,4 @@ const _layout = () => {
   );
 };
 
-export default _layout;
+export default TabsLayout;

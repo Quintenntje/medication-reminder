@@ -1,16 +1,27 @@
 import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { useColorScheme } from "react-native";
 import "./global.css";
 
 export default function RootLayout() {
+  const colorScheme = useColorScheme();
+
   return (
-    <Stack>
-      <Stack.Screen
-        name="(tabs)"
-        options={{
+    <>
+      <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
+      <Stack
+        screenOptions={{
           headerShown: false,
-          animation: "fade_from_bottom",
         }}
-      />
-    </Stack>
+      >
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
+            animation: "fade_from_bottom",
+          }}
+        />
+      </Stack>
+    </>
   );
 }
