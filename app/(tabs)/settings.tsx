@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import React from "react";
 import { Text, useColorScheme, View } from "react-native";
 import PageLayout from "../../components/PageLayout";
@@ -19,7 +20,7 @@ const Settings = () => {
         <SettingsItem
           title="Security Options"
           iconName="lock-closed-outline"
-          onPress={() => console.log("Security Options pressed")}
+          onPress={() => router.push("/security")}
         />
         <SettingsItem
           title="Notifications"

@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, useColorScheme, View } from "react-native";
+import { useColorScheme, View } from "react-native";
+import Back from "../components/Back";
 import PageLayout from "../components/PageLayout";
 
 const Security = () => {
@@ -7,13 +8,7 @@ const Security = () => {
 
   return (
     <PageLayout>
-      <Text
-        className={`text-4xl font-semibold   ${
-          colorScheme === "dark" ? "text-white" : "text-gray-900"
-        }`}
-      >
-        Settings
-      </Text>
+      <Back>Security</Back>
       <View className="mt-12"></View>
     </PageLayout>
   );
