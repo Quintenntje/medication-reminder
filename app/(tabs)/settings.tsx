@@ -23,7 +23,7 @@ const Settings = () => {
           onPress={() => router.push("/security")}
         />
         <SettingsItem
-          title="Notifications"
+          title="Alarm"
           iconName="notifications-outline"
           onPress={() => console.log("Notifications pressed")}
         />
