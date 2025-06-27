@@ -1,6 +1,7 @@
 import { Link } from "expo-router";
 import { Text, useColorScheme } from "react-native";
 import PageLayout from "../../components/PageLayout";
+import CustomButton from "../../components/Button";
 
 export default function Index() {
   const colorScheme = useColorScheme();
@@ -22,6 +23,7 @@ export default function Index() {
       >
         Onboarding
       </Link>
+      <CustomButton />
     </PageLayout>
   );
 }
