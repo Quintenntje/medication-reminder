@@ -45,7 +45,14 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
   if (!isOpen) return null;
 
   return (
-    <GestureHandlerRootView className="absolute inset-0 bg-transparent z-[1000]">
+    <GestureHandlerRootView
+      style={{
+        position: "absolute",
+        inset: 0,
+        backgroundColor: "transparent",
+        zIndex: 1000,
+      }}
+    >
       <BottomSheet
         ref={bottomSheetRef}
         onChange={handleSheetChanges}
