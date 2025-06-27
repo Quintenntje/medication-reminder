@@ -19,11 +19,11 @@ export default function Index() {
         href="/onboarding"
         className={`mt-4 ${
           colorScheme === "dark" ? "text-blue-400" : "text-blue-600"
-        }`}
+        }`} 
       >
         Onboarding
       </Link>
-      <CustomButton />
+      <CustomButton title="Save"  />
     </PageLayout>
   );
 }
