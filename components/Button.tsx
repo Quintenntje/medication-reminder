@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity , useColorScheme } from "react-native";
+import { Text, TouchableOpacity, useColorScheme } from "react-native";
 
 interface CustomButtonProps {
   title: string;
@@ -18,7 +18,6 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   className = "",
   accessibilityLabel,
 }) => {
-
   const colorScheme = useColorScheme();
 
   const getVariantStyles = () => {
@@ -34,6 +33,13 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     }
   };
 
+  const getTextColor = () => {
+    if (variant === "secondary") {
+      return colorScheme === "dark" ? "text-white" : "text-gray-900";
+    }
+    return "text-white";
+  };
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -47,7 +53,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         ${className}
       `}
     >
-      <Text className={`${colorScheme === "dark" ? "text-white" : "text-gray-900"} font-semibold text-xl`}>{title}</Text>
+      <Text className={`${getTextColor()} font-semibold text-xl`}>{title}</Text>
     </TouchableOpacity>
   );
 };
