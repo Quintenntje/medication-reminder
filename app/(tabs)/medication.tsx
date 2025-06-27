@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import React from "react";
 import { Text, useColorScheme, View } from "react-native";
 import CustomButton from "../../components/Button";
@@ -29,7 +30,12 @@ const Medication = () => {
         </View>
       </PageLayout>
       <FixedToBottom>
-        <CustomButton title="Add Medication" onPress={() => {}} />
+        <CustomButton
+          title="Add Medication"
+          onPress={() => {
+            router.push("/addMedication");
+          }}
+        />
       </FixedToBottom>
     </>
   );
