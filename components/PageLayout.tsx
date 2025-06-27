@@ -10,7 +10,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
 
   return (
     <View
-      className={`flex-1 ${
+      className={`flex-1 overflow-hidden ${
         colorScheme === "dark" ? "bg-gray-900" : "bg-white"
       } `}
     >
