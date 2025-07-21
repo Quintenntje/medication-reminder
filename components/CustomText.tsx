@@ -16,7 +16,7 @@ function CustomText(  { children, className, variant = 'body' }: TextProps)
      switch ( variant ) {
         case 'heading':
             return ( <Text
-                className={`font-bold text-5xl ${
+                className={`font-bold text-4xl ${
                     colorScheme === "dark" ? "text-white" : "text-gray-900"
                 }`
             + (className ? ` ${className}` : '')}

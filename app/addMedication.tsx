@@ -1,29 +1,19 @@
 import { router } from "expo-router";
 import React from "react";
-import { Text, useColorScheme, View } from "react-native";
+import { View } from "react-native";
 import CustomButton from "../components/Button";
 import PageLayout from "../components/PageLayout";
+import CustomText from "../components/CustomText";
 
 const Medication = () => {
-  const colorScheme = useColorScheme();
   return (
     <PageLayout>
-      <Text
-        className={`text-4xl font-semibold  ${
-          colorScheme === "dark" ? "text-white" : "text-gray-900"
-        }`}
-      >
-        Medication
-      </Text>
+    <CustomText variant={"heading"}>
+        Add Medication
+    </CustomText>
 
       <View className="mt-8">
-        <Text
-          className={`text-2xl mt-4 mx-4 ${
-            colorScheme === "dark" ? "text-white" : "text-gray-900"
-          }`}
-        >
-          Medication Type
-        </Text>
+          <CustomText variant={"subheading"}>Medication type</CustomText>
       </View>
       <View className="mt-8">
         <CustomButton title="Add Medication" onPress={() => {}} />
