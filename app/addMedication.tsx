@@ -18,12 +18,11 @@ const Medication = () => {
 
       <View className="mt-8">
         <Text
-          className={`text-lg mt-4 mx-4 ${
-            colorScheme === "dark" ? "text-gray-300" : "text-gray-700"
+          className={`text-2xl mt-4 mx-4 ${
+            colorScheme === "dark" ? "text-white" : "text-gray-900"
           }`}
         >
-          Manage your medications here. Add, edit, or remove medications as
-          needed.
+          Medication Type
         </Text>
       </View>
       <View className="mt-8">
