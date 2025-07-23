@@ -10,11 +10,10 @@ import RadioButton from "../components/RadioButton";
 const Medication = () => {
     const [medicationType, setMedicationType] = React.useState("tablet");
 
-
-
-    const handleRadioButtonClick(type: string) => {
+    const handleRadioButtonClick = (type: string) => {
         setMedicationType(type);
     }
+
   return (
     <PageLayout>
     <CustomText variant={"heading"}>
