@@ -6,6 +6,7 @@ import PageLayout from "../components/PageLayout";
 import CustomText from "../components/CustomText";
 import CustomInput from "../components/CustomInput";
 import RadioButton from "../components/RadioButton";
+import {medicationTypes} from "@/data/medicationTypes";
 
 const Medication = () => {
     const [medicationType, setMedicationType] = React.useState("tablet");
@@ -23,11 +24,7 @@ const Medication = () => {
       <View className="mt-8">
           <CustomText variant={"subheading"}>Medication type</CustomText>
           <FlatList
-              data={[
-                  { label: "Tablet", value: "tablet" },
-                  { label: "Capsule", value: "capsule" }
-              ]}
-              horizontal
+              data={medicationTypes}
               keyExtractor={item => item.value}
               renderItem={({ item }) => (
                   <RadioButton
@@ -36,7 +33,12 @@ const Medication = () => {
                       onPress={() => handleRadioButtonClick(item.value)}
                   />
               )}
-              contentContainerStyle={{ gap: 16, marginTop: 8 }}
+              contentContainerStyle={{
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: 16,
+                  marginTop: 8
+              }}
           />
       </View>
         <View className="mt-16">
