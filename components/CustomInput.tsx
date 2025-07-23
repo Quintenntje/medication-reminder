@@ -3,7 +3,7 @@ import {TextInput, useColorScheme} from 'react-native';
 
 
 interface CustomInputProps {
-    value: string;
+    value?: string;
     onChange: (value: string) => void;
     placeholder?: string;
     secureTextEntry?: boolean;
