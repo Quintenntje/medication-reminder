@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 import React from "react";
-import { View } from "react-native";
+import { View, FlatList } from "react-native";
 import CustomButton from "../components/Button";
 import PageLayout from "../components/PageLayout";
 import CustomText from "../components/CustomText";
@@ -22,23 +22,22 @@ const Medication = () => {
 
       <View className="mt-8">
           <CustomText variant={"subheading"}>Medication type</CustomText>
-          <View className="flex flex-row gap-4 mt-2">
-            <RadioButton
-              label="Tablet"
-              checked={true}
-              onPress={() => {handleRadioButtonClick("tablet")}}
-            />
-            <RadioButton
-              label="Liquid"
-              checked={false}
-              onPress={() => { handleRadioButtonClick("liquid")}}
-            />
-            <RadioButton
-              label="Injection"
-                checked={false}
-              onPress={() => { handleRadioButtonClick("injection")}}
-            />
-          </View>
+          <FlatList
+              data={[
+                  { label: "Tablet", value: "tablet" },
+                  { label: "Capsule", value: "capsule" }
+              ]}
+              horizontal
+              keyExtractor={item => item.value}
+              renderItem={({ item }) => (
+                  <RadioButton
+                      label={item.label}
+                      checked={medicationType === item.value}
+                      onPress={() => handleRadioButtonClick(item.value)}
+                  />
+              )}
+              contentContainerStyle={{ gap: 16, marginTop: 8 }}
+          />
       </View>
         <View className="mt-16">
             <CustomText className={"mb-4"} variant={"subheading"}>Medication name</CustomText>
