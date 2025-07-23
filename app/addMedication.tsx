@@ -10,6 +10,7 @@ import {medicationTypes} from "@/data/medicationTypes";
 
 const Medication = () => {
     const [medicationType, setMedicationType] = React.useState("tablet");
+    const [medicationName, setMedicationName] = React.useState("");
 
     const handleRadioButtonClick = (type: string) => {
         setMedicationType(type);
@@ -35,7 +36,7 @@ const Medication = () => {
               )}
               contentContainerStyle={{
                   flexDirection: "row",
-                  flexWrap: "wrap",
+                    flexWrap: "wrap",
                   gap: 16,
                   marginTop: 8
               }}
@@ -43,7 +44,7 @@ const Medication = () => {
       </View>
         <View className="mt-16">
             <CustomText className={"mb-4"} variant={"subheading"}>Medication name</CustomText>
-            <CustomInput  onChange={() => {}} placeholder="Medication name"  />
+            <CustomInput  onChange={setMedicationName} placeholder="Medication name" value={medicationName}  />
         </View>
       <View className="mt-8">
         <CustomButton title="Next" onPress={() => {}} />

@@ -34,7 +34,7 @@ function RadioButton({ label, checked, onPress, className = "" }: RadioButtonPro
     return (
         <TouchableOpacity
             onPress={onPress}
-            className={`px-4 py-4 rounded-md border ${borderColor} ${bgColor} flex items-center justify-center ${className}`}
+            className={`px-4 py-4 rounded-md border ${borderColor} ${bgColor} flex items-center justify-center  ${className}`}
             activeOpacity={0.7}
         >
             <Text className={`text-base ${textColor} ${checked ? "font-semibold" : ""}`}>{label}</Text>
