@@ -22,7 +22,7 @@ const Medication = () => {
 
       <View className="mt-8">
           <CustomText variant={"subheading"}>Medication type</CustomText>
-          <View className="flex flex-row gap-2">
+          <View className="flex flex-row gap-4 mt-2">
             <RadioButton
               label="Tablet"
               checked={true}
@@ -40,8 +40,9 @@ const Medication = () => {
             />
           </View>
       </View>
-        <View className="mt-4">
-            <CustomInput onChange={() => {}} placeholder="Medication name "  />
+        <View className="mt-16">
+            <CustomText className={"mb-4"} variant={"subheading"}>Medication name</CustomText>
+            <CustomInput  onChange={() => {}} placeholder="Medication name"  />
         </View>
       <View className="mt-8">
         <CustomButton title="Next" onPress={() => {}} />

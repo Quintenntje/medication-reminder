@@ -1,4 +1,4 @@
-import { TouchableOpacity, View, Text } from "react-native";
+import { TouchableOpacity, Text, useColorScheme } from "react-native";
 
 interface RadioButtonProps {
     label: string;
@@ -7,17 +7,37 @@ interface RadioButtonProps {
     className?: string;
 }
 
+
 function RadioButton({ label, checked, onPress, className = "" }: RadioButtonProps) {
+    const colorScheme = useColorScheme();
+
+    const borderColor = checked
+        ? "border-blue-500"
+        : colorScheme === "dark"
+            ? "border-gray-700"
+            : "border-gray-300";
+    const bgColor = checked
+        ? colorScheme === "dark"
+            ? "bg-blue-900"
+            : "bg-blue-50"
+        : colorScheme === "dark"
+            ? "bg-gray-800"
+            : "bg-white";
+    const textColor = checked
+        ? colorScheme === "dark"
+            ? "text-blue-300"
+            : "text-blue-700"
+        : colorScheme === "dark"
+            ? "text-gray-100"
+            : "text-gray-800";
+
     return (
         <TouchableOpacity
             onPress={onPress}
-            className={`flex-row items-center ${className}`}
+            className={`px-4 py-4 rounded-md border ${borderColor} ${bgColor} flex items-center justify-center ${className}`}
             activeOpacity={0.7}
         >
-            <View className={`w-5 h-5 rounded-full border-2 ${checked ? "border-blue-500" : "border-gray-400"} flex items-center justify-center mr-2`}>
-                {checked && <View className="w-3 h-3 rounded-full bg-blue-500" />}
-            </View>
-            <Text className="text-base">{label}</Text>
+            <Text className={`text-base ${textColor} ${checked ? "font-semibold" : ""}`}>{label}</Text>
         </TouchableOpacity>
     );
 }

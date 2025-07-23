@@ -25,7 +25,7 @@ function CustomText(  { children, className, variant = 'body' }: TextProps)
             </Text> );
         case 'subheading':
             return ( <Text
-                className={`text-2xl mt-4 mx-4 ${
+                className={`text-2xl mt-4 ${
                     colorScheme === "dark" ? "text-white" : "text-gray-900"
                 }`
             + (className ? ` ${className}` : '')}
