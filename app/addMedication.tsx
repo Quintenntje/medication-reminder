@@ -16,6 +16,18 @@ const Medication = () => {
         setMedicationType(type);
     }
 
+    const handleNext = () => {
+        if (!medicationName) {
+            alert("Please enter a medication name");
+            return;
+        }
+
+        router.push({
+            pathname: "/addMedicationDetails",
+            params: { medicationType, medicationName }
+        });
+    }
+
   return (
     <PageLayout>
     <CustomText variant={"heading"}>
@@ -47,7 +59,7 @@ const Medication = () => {
             <CustomInput  onChange={setMedicationName} placeholder="Medication name" value={medicationName}  />
         </View>
       <View className="mt-8">
-        <CustomButton title="Next" onPress={() => {}} />
+        <CustomButton title="Next" onPress={handleNext} />
         <CustomButton
           title="Cancel"
           variant="secondary"

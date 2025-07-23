@@ -7,7 +7,6 @@ interface TextProps {
 }
 
 
-
 function CustomText(  { children, className, variant = 'body' }: TextProps)
  {
     const colorScheme = useColorScheme();
@@ -38,7 +37,7 @@ function CustomText(  { children, className, variant = 'body' }: TextProps)
                     colorScheme === "dark" ? "text-white" : "text-gray-900"
                 }`
                 + (className ? ` ${className}` : '')}
-            ></Text>;
+            >{children}</Text>;
         case 'small':
             return <Text className={` text-sm ${
                     colorScheme === "dark" ? "text-white" : "text-gray-900"
@@ -47,12 +46,12 @@ function CustomText(  { children, className, variant = 'body' }: TextProps)
             >
                 {children}
             </Text>;
-        default:
-            return <Text className={`${
-                    colorScheme === "dark" ? "text-white" : "text-gray-900"
-                }`
-                + (className ? ` ${className}` : '')}
-            ></Text>;
+         default:
+             return <Text className={`${
+                     colorScheme === "dark" ? "text-white" : "text-gray-900"
+                 }`
+                 + (className ? ` ${className}` : '')}
+             >{children}</Text>;
         }
 
 
